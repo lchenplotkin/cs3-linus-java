@@ -10,13 +10,13 @@ public class rockpaper {
 
         while (game==true){
           System.out.print("Rock paper scissors");
-          char play=input.nextChar();
+          char play=input.nextLine();
           int outcome= rand.nextInt(2); 
           
-          if (outcome <4 ){
-            if (play=='r'){
+          if (outcome == 0){
+            if (play.equals("r"){
               System.out.println("PAPER!");
-            } else if (play=='s'){
+            } else if (play.equals("s")'){
               System.out.println("ROCK!");
             } else {
               System.out.println("SCISSORS!");
@@ -25,6 +25,31 @@ public class rockpaper {
 
             game=false;
           } 
+
+        if (outcome == 1){
+          if (play.equals("r")){
+            System.out.println("SCISSORS!");
+
+          } else if (play.equals("p")){
+            System.out.println("ROCK!");
+          } else {
+            System.out.println("PAPER!");
+          }
+
+          game=false;
+        }
+
+        if (outcome==2){
+          if (play=='p'){
+            System.out.println("PAPER!");
+          } else if (play=='r'){
+            System.out.println("ROCK!");
+          } else {
+            System.out.println("SCISSORS!");
+          }
+          System.out.println("TIE!");
+
+        }
 
         }
         }
