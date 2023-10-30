@@ -5,7 +5,7 @@ public class Pizza
   private String toppings;
   private String type;
 
-  //constructor
+  //constructors
   public Pizza(String pizzaType, String pizzaToppings, int pizzaSize){
     type = pizzaType;
     toppings = pizzaToppings;
@@ -17,12 +17,8 @@ public class Pizza
     size = pizzaSize;
   }
     
-  // You don't need to do anything with this method
-  // Used to print the object
-  public String toString()
-  {
-      return size + " inch " + type + " pizza with " + toppings;
-  }
+
+  //getters
 
   public String getType(){
     return type;
@@ -36,6 +32,8 @@ public class Pizza
     return size;
   }
 
+  //setters
+
   public void setSize(int newSize){
     size = newSize;
   }
@@ -46,5 +44,14 @@ public class Pizza
 
   public void setToppings(String newToppings){
     toppings = newToppings;
+
+
+  //toString
+
+  public String toString()
+  {
+      return size + " inch " + type + " pizza with " + toppings;
+  }
+
   }
 }
