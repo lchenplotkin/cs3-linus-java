@@ -3,18 +3,23 @@ import java.lang.Math; // Needed to use Math.round()
 public class PlayerTester
 {
   public static void main(String[] args) {
+    Random r = new Random();
     CricketPlayer brian = new CricketPlayer("Brian Lara", "GFS");
     CricketPlayer fabian = new CricketPlayer("Fabian Allen");
 
-    for (int i =0;i<5; i++){
-      Random r = new Random();
-      int brianRuns = Math.round(9.0 * (double)(r.nextGaussian()));
-      int brianBowls = Math.round(1.75 * (double)(r.nextGaussian()));
-      int fabianRuns = Math.round(11.75 * (double)(r.nextGaussian()));
-      int fabianBowls = Math.round((double)20.25 * (double)(r.nextGaussian()));
+    double brianRun = 9.0;
+    double brianBowl = 1.75;
+    double fabianRun = 11.75;
+    double fabianBowl = 20.25;
 
-      brian.addMatch(brianRuns,brianBowls);
-      fabian.addMatch(fabianRuns,fabianBowls);
+    for (int i =0;i<5; i++){
+      int brianRuns = (int) Math.round(r.nextGaussian() * 3 + 9.0);
+      int brianBowls = (int) Math.round(r.nextGaussian() * 3 +1.75);
+      int fabianRuns = (int) Math.round(r.nextGaussian() * 3 + 11.75);
+      int fabianBowls = (int) Math.round(r.nextGaussian() * 3 + 20.25);
+
+      brian.addMatch(brianRuns, brianBowls);
+      fabian.addMatch(fabianRuns, fabianBowls);
 
     }
 
