@@ -26,6 +26,11 @@ public class Student
   //          Improvement = (67 - 54) + (89 - 67) + (95 - 89) = 41
   public int getExamImprovement()
   {
+    int improvement = 0;
+    for (int i = 1; i < numExamsTaken; i++){
+      improvement += (exams[i]-exams[i-1]);
+    }
+    return improvement;
   // your code goes here! 
   }
   
