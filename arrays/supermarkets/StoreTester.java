@@ -1,6 +1,9 @@
+import java.util.Scanner;
+
 class StoreTester{
   public static void main(String args[]){
-    Store[] storeList = new Store[3];
+
+    Scanner input = new Scanner(System.in);
 
     Item banana = new Item("Banana", 0.62);
     Item apple = new Item("Apple", 1.32);
@@ -21,6 +24,51 @@ class StoreTester{
     Item wood = new Item("Wood", 2.89);
 
     Item[] lowesList = {screws, hammer, scrwDrive, snowBlow, wood};
+
+    Item roses = new Item("Roses", 30);
+    Item carnation = new Item("Carnation", 1.20);
+    Item daisies = new Item("Dasies", 30);
+    Item pansies = new Item("Pansies", 19.98);
+    Item tulip = new Item("Tulip", 30);
+
+    Item[] flowerList = {roses, carnation, daisies, pansies, tulip};
+
+    Store walmart = new Store("Walmart", walmartList);
+    Store lowes = new Store("Lowes", lowesList);
+    Store flowershop = new Store("Flower Shop", flowerList);
+
+    Store[] storeList = {walmart, lowes, flowershop};
+
+    Customer usr = new Customer("User", 100);
+    for (Store store: storeList){
+      System.out.print(store.getName()+ " ");
+    }
+
+    System.out.println("Which store do you want to go to? 1, 2, or 3?");
+    
+
+    int index = input.nextInt() - 1;
+    if (index>=storeList.length || index<0){
+      System.out.println("Please enter valid index next time!");
+      System.exit(0);
+    }
+    Store[] storeList2 = {storeList[index]};
+    printInventories(storeList2);
+
+    
+  }
+
+  public static void printInventories(Store[] storeList){
+    for (Store store: storeList){
+      for (Item item: store.getArray()){
+        if (item != null){
+          System.out.println(item.getName() + item.getPrice());
+        }
+      }
+    }
+  }
+
+}
 
 
 
@@ -52,8 +100,7 @@ class StoreTester{
 ////"Tulip", 35
 
 
-  }
-
+/*
   public void printInventories(Store[] storeList){
     for (Store store: storeList){
       for (Item item: store.getArray()){
@@ -61,4 +108,4 @@ class StoreTester{
       }
     }
   }
-}
+  */

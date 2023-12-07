@@ -4,7 +4,7 @@ public class Store{
 
   public Store(String name, Item[] array){
     this.name = name;
-    for (i=0; i<array.length; i++){
+    for (int i=0; i<array.length; i++){
       this.inventory[i]=array[i];
     }
   }
@@ -22,7 +22,7 @@ public class Store{
   }
 
   public void setArray(Item[] array){
-    for (i=0; i<array.length; i++){
+    for (int i=0; i<array.length; i++){
       inventory[i] = array[i];
     }
   }
