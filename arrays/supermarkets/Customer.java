@@ -16,6 +16,10 @@ public class Customer{
     return money;
   }
 
+  public Item[] getCart(){
+    return shoppingCart;
+  }
+
   public void setName(String newName){
     name=newName;
   }
@@ -28,6 +32,16 @@ public class Customer{
     money-=deduction;
   }
 
+  public void printCart(){
+    for (int i=0;i<shoppingCart.length;i++){
+      if (shoppingCart[i]!=null){
+        System.out.print(shoppingCart[i].getName()+" ");
+      } else{
+        System.out.print("- ");
+      }
+    }
+  }
+
   public void addToCart(int quantity, Item item){
     for (int i=0; i<shoppingCart.length; i++){
       if (shoppingCart[i]==null && quantity>0){
@@ -37,4 +51,13 @@ public class Customer{
     }
   }
 
+  public double checktotal(){
+    double total = 0.0;
+    for (int i=0; i<shoppingCart.length; i++){
+      if (shoppingCart[i] != null){
+        total += shoppingCart[i].getPrice();
+      }
+    }
+    return total;
+  }
 }

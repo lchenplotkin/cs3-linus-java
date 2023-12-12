@@ -55,14 +55,33 @@ class StoreTester{
     Store[] storeList2 = {storeList[index]};
     printInventories(storeList2);
 
+    int itemindex = -2;
+    while (itemindex !=-1){
+      System.out.print("Current cart: ");
+      usr.printCart();
+      System.out.println("Which item do you wish to add to cart? 1,2,3,4... or 0 for nothing.");
+      itemindex = input.nextInt()-1;
+      if (itemindex == -1){
+        System.out.println("Thank you for shopping with us today!");
+      } else{
+        System.out.println("How many of this item do you wish to add to cart?");
+        int itemquant = input.nextInt();
+        usr.addToCart(itemquant,storeList[index].getArray()[itemindex]);
+      }
+    }
+
+    System.out.println("Your total is: " +  usr.checktotal());
+
     
-  }
+}
 
   public static void printInventories(Store[] storeList){
     for (Store store: storeList){
+      int i = 1;
       for (Item item: store.getArray()){
         if (item != null){
-          System.out.println(item.getName() + item.getPrice());
+          System.out.println(i + " "+ item.getName() + " " + item.getPrice());
+          i+=1;
         }
       }
     }
