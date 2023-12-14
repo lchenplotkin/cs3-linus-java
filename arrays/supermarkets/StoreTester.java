@@ -3,6 +3,12 @@ import java.util.Scanner;
 class StoreTester{
   public static void main(String args[]){
 
+    String[] states = {"AL", "AK","AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY","D.C"};
+    double[] taxes = {4.0,0.0,5.6,6.5,7.25,2.9,6.35,0.00,6.00,4.00,4.00,6.00,6.25,7.00,6.00,6.50,6.00,4.45,5.50,6.00,6.25,6.00,6.88,7.00,4.23,0.00,5.50,6.85,0.00,6.63,4.88,4.00,4.75,5.00,4.75,0.00,6.00,7.00,6.00,4.20,7.00,6.25,6.10,6.00,5.30,6.50,6.00,5.00,4.00,6.00};
+
+    System.out.println(states.length);
+    System.out.println(taxes.length);
+
     Scanner input = new Scanner(System.in);
 
     Item banana = new Item("Banana", 0.62);
@@ -70,7 +76,19 @@ class StoreTester{
       }
     }
 
-    System.out.println("Your total is: " +  usr.checktotal());
+    for (int i=1;i<=states.length;i++){
+      System.out.println(i + " " + states[i-1]);
+    }
+
+    System.out.println("Which state do you live in? 1-51)");
+
+    int stateindex = input.nextInt()-1;
+    double salestax = taxes[stateindex] * 0.01;
+    double total = usr.checktotal();
+    total += total*salestax;
+    
+
+    System.out.println("Your total is: " + total); 
 
     
 }
