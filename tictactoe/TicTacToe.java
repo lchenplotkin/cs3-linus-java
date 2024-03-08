@@ -13,7 +13,7 @@ public class TicTacToe
   }
 
   public String checkWinner(){
-    String winner = null;
+    String winner = "-";
     if (board[0][0].equals(board[1][1])&&board[0][0].equals(board[2][2])){
       winner = board[0][0];
     } else if(board[0][2].equals(board[1][1])&&board[0][2].equals(board[2][0])){
@@ -31,11 +31,11 @@ public class TicTacToe
     }
 
 
-    if (winner.equals(null)){
+    if (winner.equals("-")){
       for (int i=0;i<3;i++){
         for (int j=0;j<3;j++){
           if (board[i][j].equals("-")){
-            return null;
+            return "-";
           }
         }
       }
@@ -52,43 +52,54 @@ public class TicTacToe
 }
 
   public int[] choosePlay(){
-    int[] bestplay = new int[2];
+    int[] bestplay = {1,1};
     if (board[1][1]=="-"){
-      bestplay = {1,1};
+      bestplay[0]=1;
+      bestplay[1]=1;
     } else {
       for (int i=0;i<3;i++){
-        if (board[i][0].equals(board[i][2])){
-          bestplay = {i,1};
+        if (board[i][0].equals(board[i][2])&&board[i][1]=="-"){
+          bestplay[0]=i;
+          bestplay[1]=1;
         }
-        else if (board[i][0].equals(board[i][1])){
-          bestplay = {i,2};
+        else if (board[i][0].equals(board[i][1])&&board[i][2]=="-"){
+          bestplay[0]=i;
+          bestplay[1]=2;
         }
-        else if (board[i][1].equals(board[i][2])){
-          bestplay = {i,0};
+        else if (board[i][1].equals(board[i][2])&&board[i][0]=="-"){
+          bestplay[0] = i;
+          bestplay[1] = 0;
         }
-        else if (board[0][i].equals(board[2][i])){
-          bestplay = {1,i};
+        else if (board[0][i].equals(board[2][i])&&board[1][i]=="-"){
+          bestplay[0]=1;
+          bestplay[1]=i;
         }
-        else if (board[0][i].equals(board[1][i])){
-          bestplay = {2,i};
+        else if (board[0][i].equals(board[1][i])&&board[2][i]=="-"){
+          bestplay[0] = 2;
+          bestplay[1] = i;
         }
-        else if (board[1][i].equals(board[2][i]){
-          bestplay = {0,i};
+        else if (board[1][i].equals(board[2][i])&&board[0][i]=="-"){
+          bestplay[0] = 0;
+          bestplay[1] = i;
       }
       }
 
-      if bestplay == {0,0}{
+      if (bestplay[0] == 1 && bestplay[1] == 1){
          if (board[0][0].equals("-")){
-          bestplay = {0,0};
+          bestplay[0] = 0;
+          bestplay[1] = 0;
         }
         else if (board[2][0].equals("-")){
-          bestplay = {2,0};
+          bestplay[0] = 2;
+          bestplay[1] = 0;
         }
         else if (board[0][2].equals("-")){
-          bestplay = {0,2};
+          bestplay[0] = 0;
+          bestplay[1] = 2;
         }
         else if (board[2][2].equals("-")){
-          bestplay = {2,2};
+          bestplay[0] = 2;
+          bestplay[1] = 2;
         }
     }
     }

@@ -8,22 +8,27 @@ public class TicTacToeTester
         Scanner input = new Scanner(System.in);
         TicTacToe board = new TicTacToe();
         printBoard(board.getBoard());
-        int row = input.nextInt();
-        int col = input.nextInt();
-        board.addMark(row,col, "X");
-        printBoard(board.getBoard());
+
+        boolean gameOver = false;
+        int row = 1;
+        int col = 1;
+
+        int[] computerPlay = {1,1}; 
+        while (board.checkWinner().equals("-")){
+          row = input.nextInt();
+          col = input.nextInt();
+          board.addMark(row,col, "X");
+          printBoard(board.getBoard());
+
+          if (board.checkWinner().equals("-")){
+            board.addMark(board.choosePlay()[0],board.choosePlay()[1],"O");
+            printBoard(board.getBoard());
+          }
+
+        }
         
-        row = input.nextInt();
-        col = input.nextInt();
-        board.addMark(row,col, "X");
-        printBoard(board.getBoard());
-
-        row = input.nextInt();
-        col = input.nextInt();
-        board.addMark(row,col, "X");
-        printBoard(board.getBoard());
-
         System.out.println(board.checkWinner());
+
     }
     
 
